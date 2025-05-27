@@ -15,7 +15,7 @@
 
     <div class="container mx-auto p-4 max-w-md">
         <todo-header class="flex flex-col items-center justify-between w-max mb-4 gap-2">
-            <h1 class="text-2xl font-bold mb-4 dark:text-white">To-do List {{ __('auth.failed') }} </h1>
+            <h1 class="text-2xl font-bold mb-4 dark:text-white"> {{ __('projects.todos.title') }}</h1>
             <div class="flex gap-2">
                 
                 
@@ -33,7 +33,7 @@
                         class="text-white text-sm rounded px-4 py-2 transition 
                             @if($todoFile) bg-green-500 hover:bg-green-600 cursor-pointer 
                             @else bg-green-700 cursor-not-allowed opacity-60 @endif">
-                        Import Todos
+                        {{ __('projects.todos.importButton') }}
                     </button>
                 </import-container>
             </div>
@@ -49,55 +49,64 @@
                 <input 
                     type="text" 
                     wire:model="newTodo" 
-                    placeholder="Add a new to-do" 
+                    placeholder="{{ __('projects.todos.addButtonTooltip') }}" 
                     class="flex-1 border border-gray-300 rounded px-3 py-2 dark:bg-[#19140035] dark:text-[#EDEDEC]" 
                 >
                 <button 
                     type="submit" 
                     class="bg-blue-500 text-white rounded px-4 py-2 hover:bg-blue-600 cursor-pointer"
                 >
-                    Add
+                    {{ __('projects.todos.addButton') }}
                 </button>
             </form>
 
-            <!-- Action Buttons -->
-            <div class="flex items-center justify-between gap-2">
+        </div>
+        
+        <div class="space-y-4 rounded-xl bg-white p-4 shadow-sm dark:bg-gray-900">
+            <div class="flex items-center justify-between">
                 <button 
                     wire:click="clearTodos" 
-                    class="text-red-500 text-sm hover:underline cursor-pointer"
+                    class="text-red-500 text-sm font-medium hover:underline transition"
                 >
-                    Clear All
+                    {{ __('projects.todos.clearButton') }}
                 </button>
 
                 <button 
                     wire:click="exportAsNote" 
-                    class="bg-blue-500 text-white text-sm rounded px-4 py-2 hover:bg-blue-600 cursor-pointer"
+                    class="bg-blue-500 text-white text-sm rounded px-4 py-2 hover:bg-blue-600 transition"
                 >
-                    Export as Note
+                    {{ __('projects.todos.exportButton') }}
                 </button>
             </div>
+
+            <ul class="space-y-3">
+                @foreach($todos as $index => $todo)
+                    <li class="flex items-center justify-between p-4 rounded-xl bg-gray-50 hover:bg-gray-100 dark:bg-gray-800 dark:hover:bg-gray-700 transition-shadow shadow-sm">
+                        <div class="flex items-center">
+                            <input 
+                                type="checkbox" 
+                                wire:model.live="todos.{{ $index }}.completed"
+                                class="mr-3 h-5 w-5 text-blue-500 transition duration-200 rounded focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-700"
+                            >
+                            <span @class([
+                                'text-base transition-all duration-200',
+                                'text-gray-700 dark:text-gray-300' => !$todo['completed'],
+                                'line-through text-gray-400 dark:text-gray-500' => $todo['completed'],
+                            ])>
+                                {{ $todo['text'] }}
+                            </span>
+                        </div>
+                        <button 
+                            wire:click="removeTodo({{ $index }})"
+                            class="bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded-lg transition duration-200 shadow-sm"
+                        >
+                            {{ __('projects.todos.removeButton') }}
+                        </button>
+                    </li>
+                @endforeach
+            </ul>
         </div>
-        
-        <ul class="space-y-2">
-            @foreach($todos as $index => $todo)
-                <li class="flex items-center justify-between p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-800">
-                    <div class="flex items-center">
-                        <input type="checkbox" wire:model="todos.{{ $index }}.completed" 
-                               class="mr-2 h-5 w-5 text-blue-500 rounded">
-                        <span @class([
-                            'text-gray-700 dark:text-gray-300',
-                            'line-through text-gray-400' => $todo['completed']
-                        ])>
-                            {{ $todo['text'] }}
-                        </span>
-                    </div>
-                    <button wire:click="removeTodo({{ $index }})" 
-                            class="bg-red-500 text-white rounded p-1 hover:bg-red-600">
-                        Remove
-                    </button>
-                </li>
-            @endforeach
-        </ul>
+
     
         @script
         <script>

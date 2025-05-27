@@ -20,28 +20,28 @@
         <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6">
             <nav class="flex items-center justify-center gap-4">
                 <a href="{{ route('home') }}" wire:navigate class="px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                    Home
+                    {{ __('content.nav.home') }}
                 </a>
                 <a href="{{ route('about') }}" wire:navigate class="px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                    About
+                    {{ __('content.nav.about') }}
                 </a>
                 <a href="{{ route('projects') }}" wire:navigate class="px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                    Projects
+                    {{ __('content.nav.projects') }}
                 </a>
                 <a href="{{ route('contact') }}" wire:navigate class="px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
-                    Contact me
+                    {{ __('content.nav.contact') }}
                 </a>
-            </nav>
-            <form action="{{ route('language.toggle') }}" method="POST" class="inline">
-                @csrf
-                <button 
-                    type="submit" 
-                    class="text-sm px-3 py-2 rounded bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:text-white dark:hover:bg-gray-600"
-                >
-                    {{ app()->getLocale() === 'es' ? 'English' : 'Español' }}
-                </button>
-            </form>
-
+                <form action="{{ route('language.toggle') }}" method="POST" class="inline">
+                    @csrf
+                    <button 
+                        type="submit" 
+                        class="text-lg px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 cursor-pointer transition-colors duration-300 ease-in-out"
+                        title="{{ app()->getLocale() === 'es' ? 'Switch to English' : 'Cambiar a Español' }}"
+                    >                    
+                        {{ app()->getLocale() === 'es' ? '🇺🇸' : '🇪🇸' }}
+                    </button>
+                </form>
+            </nav>            
         </header>
         <div class="flex items-center justify-center w-full transition-opacity opacity-100 duration-750 lg:grow starting:opacity-0">
             <main class="w-full lg:max-w-4xl max-w-[335px] text-sm">
