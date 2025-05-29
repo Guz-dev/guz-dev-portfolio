@@ -14,30 +14,28 @@
     @endif
 
     <div class="container mx-auto p-4 max-w-md">
-        <todo-header class="flex flex-col items-center justify-between w-max mb-4 gap-2">
-            <h1 class="text-2xl font-bold mb-4 dark:text-white"> {{ __('projects.todos.title') }}</h1>
-            <div class="flex gap-2">
-                
-                
-                <import-container class="flex items-center justify-center gap-1 mb-4">
-                    <input 
-                    wire:model="todoFile" 
-                    type="file" 
-                    id="todoFile" 
-                    accept=".txt"
-                    class="border border-gray-300 rounded px-3 py-2 cursor-pointer text-sm text-gray-700 w-52 dark:bg-[#19140035] dark:text-[#EDEDEC]">
+        <h1 class="text-center text-2xl font-bold mb-6">
+            {{ __('projects.todos.title') }}
+        </h1>
+        <div class="flex gap-2">
+            <import-container class="flex w-full items-center justify-between gap-1 mb-4">
+                <input 
+                wire:model="todoFile" 
+                type="file" 
+                id="todoFile" 
+                accept=".txt"
+                class="border border-gray-300 rounded px-3 py-2 cursor-pointer text-sm text-gray-700 w-52 dark:bg-[#19140035] dark:text-[#EDEDEC]">
 
-                    <button 
-                        wire:click="importTodos" 
-                        @if(!$todoFile) disabled @endif
-                        class="text-white text-sm rounded px-4 py-2 transition 
-                            @if($todoFile) bg-green-500 hover:bg-green-600 cursor-pointer 
-                            @else bg-green-700 cursor-not-allowed opacity-60 @endif">
-                        {{ __('projects.todos.importButton') }}
-                    </button>
-                </import-container>
-            </div>
-        </todo-header>
+                <button 
+                    wire:click="importTodos" 
+                    @if(!$todoFile) disabled @endif
+                    class="text-white text-sm rounded px-4 py-2 transition 
+                        @if($todoFile) bg-green-500 hover:bg-green-600 cursor-pointer 
+                        @else bg-green-700 cursor-not-allowed opacity-60 @endif">
+                    {{ __('projects.todos.importButton') }}
+                </button>
+            </import-container>
+        </div>
     
         @error('todoFile') 
             <div class="text-red-500 text-sm mb-4">{{ $message }}</div>
@@ -106,7 +104,6 @@
                 @endforeach
             </ul>
         </div>
-
     
         @script
         <script>

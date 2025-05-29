@@ -17,11 +17,6 @@ class HomeController extends Controller
         return redirect()->back();
     }
     
-    public function index()
-    {
-        return view('home');
-    }
-
     public function about()
     {
         return view('about');

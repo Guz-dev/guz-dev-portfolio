@@ -11,6 +11,28 @@ return [
     'home' => [
         'name' => 'Gustavo Olivares',
         'description' => 'Desarrollador web especializado en Laravel, React y Node.js. Construyo soluciones eficientes y escalables para empresas modernas.',
+
+        'experience_title' => 'Experiencia laboral',
+        'experiences' => [
+            'camarones' => [
+                'position' => 'Desarrollador web',
+                'place' => 'Municipalidad de Camarones (Remoto)',
+                'date' => 'Marzo 2024 – Diciembre 2024',
+                'desc' => 'Desarrollo de una plataforma en Laravel para registrar facturas e insumos de farmacia en Codpa, con historial y reportes para toma de decisiones.'
+            ],
+            'dici' => [
+                'position' => 'Desarrollador web',
+                'place' => 'Universidad de Tarapacá “DICI” - Arica',
+                'date' => 'Diciembre 2023 – Febrero 2024',
+                'desc' => 'Sistema Laravel para gestión de préstamos de computadores mediante un sistema optimizado con código QR.'
+            ],
+            'dlo' => [
+                'position' => 'Desarrollador web',
+                'place' => 'Universidad de Tarapacá “DLO” - Arica',
+                'date' => 'Enero 2023 – Marzo 2023',
+                'desc' => 'Web en Laravel desarrollada en práctica con otros estudiantes para gestión de informes de proyectos del Departamento de Infraestructura.'
+            ]
+        ]
     ],
 
     'about' => [

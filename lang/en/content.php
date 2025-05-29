@@ -9,8 +9,29 @@ return [
     ],
 
     'home' => [
-        'name' => 'Gustavo Olivares',
-        'description' => 'Web developer specialized in Laravel, React, and Node.js. I build efficient and scalable solutions for modern businesses.',
+        'name' => 'Gustavo Olivares / Software Development',
+        'description' => 'Software developer experienced in Laravel, React, Node.js, and more. Specialized in building scalable and efficient web applications.',
+        'experience_title' => 'Work Experience',
+        'experiences' => [
+            'camarones' => [
+                'position' => 'Web Developer',
+                'place' => 'Municipality of Camarones (Remote)',
+                'date' => 'March 2024 – December 2024',
+                'desc' => 'Developed a Laravel platform to manage invoices and pharmacy supplies in Codpa, including history and reports for decision-making.'
+            ],
+            'dici' => [
+                'position' => 'Web Developer',
+                'place' => 'University of Tarapacá “DICI” - Arica',
+                'date' => 'December 2023 – February 2024',
+                'desc' => 'Laravel-based system to manage computer loans efficiently using QR codes.'
+            ],
+            'dlo' => [
+                'position' => 'Web Developer',
+                'place' => 'University of Tarapacá “DLO” - Arica',
+                'date' => 'January 2023 – March 2023',
+                'desc' => 'Laravel web project developed with peers to manage infrastructure project reports at the university.'
+            ]
+        ]
     ],
     
     'about' => [
