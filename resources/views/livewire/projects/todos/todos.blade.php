@@ -71,7 +71,7 @@
 
                 <button 
                     wire:click="exportAsNote" 
-                    class="bg-blue-500 text-white text-sm rounded px-4 py-2 hover:bg-blue-600 transition"
+                    class="bg-blue-500 text-white text-sm rounded px-4 py-2 hover:bg-blue-600 transition cursor-pointer"
                 >
                     {{ __('projects.todos.exportButton') }}
                 </button>
@@ -96,7 +96,7 @@
                         </div>
                         <button 
                             wire:click="removeTodo({{ $index }})"
-                            class="bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded-lg transition duration-200 shadow-sm"
+                            class="bg-red-500 hover:bg-red-600 text-white text-sm px-3 py-1 rounded-lg transition duration-200 shadow-sm cursor-pointer"
                         >
                             {{ __('projects.todos.removeButton') }}
                         </button>

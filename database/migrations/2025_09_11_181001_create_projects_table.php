@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('earthquakes', function (Blueprint $table) {
+        Schema::create('projects', function (Blueprint $table) {
             $table->id();
-            $table->string('location');
-            $table->decimal('magnitude', 4, 2);
-            $table->timestamp('time');
-            $table->decimal('depth', 8, 2);
+            $table->string('title');
+            $table->text('description');
+            $table->string('tools')->nullable();
+
+            $table->string('project_name')->unique();
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('earthquakes');
+        Schema::dropIfExists('projects');
     }
 };

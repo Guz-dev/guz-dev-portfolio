@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Livewire\Home;
 
-
+use App\Livewire\Projects\PharmacyManager\PharmacyManager;
 use App\Livewire\Projects\Todos\Todos;
 use App\Livewire\Projects\EarthquakeTracker\EarthquakeTracker;
 
@@ -19,6 +19,7 @@ Route::post('/contact', [HomeController::class, 'sendContact'])->name('contact.s
 
 Route::prefix('projects')->group(function () {
     Route::get('/', [HomeController::class, 'projects'])->name('projects');
+    Route::get('/pharmacy-manager', PharmacyManager::class)->name('projects.pharmacy-manager');
     Route::get('/todos', Todos::class)->name('projects.todos');
     Route::get('/earthquake-tracker', EarthquakeTracker::class)->name('projects.earthquake-tracker');
     Route::get('/project3', [HomeController::class, 'project3'])->name('project3');

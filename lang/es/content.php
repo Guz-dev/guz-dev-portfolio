@@ -39,7 +39,7 @@ return [
         'title' => 'Sobre mí',
         'intro' => 'Soy desarrollador de software con experiencia práctica en el desarrollo de aplicaciones web orientadas a la eficiencia y escalabilidad. He participado en proyectos como sistemas de gestión de inventarios y plataformas con integración de códigos QR, resolviendo necesidades concretas con soluciones funcionales.',
 
-        'location_age' => 'Tengo 25 años y vivo en Arica, Chile.',
+        'location_age' => 'Tengo :age años y vivo en Arica, Chile.',
 
         'education_title' => 'Formación académica',
         'education_description' => 'Soy titulado en Ingeniería en Computación e Informática de la Universidad de Tarapacá, donde adquirí una sólida base en desarrollo de software, estructuras de datos y arquitectura de sistemas.',
@@ -57,5 +57,8 @@ return [
     'projects' => [
         'title' => 'Proyectos',
         'description' => 'Aquí puedes encontrar algunos de los proyectos en los que he trabajado, cada uno diseñado para resolver problemas específicos y mejorar la eficiencia en diferentes áreas.',
+        'placeholder_title' => 'Proyecto en desarrollo',
+        'placeholder_description' => 'Próximamente más información sobre este proyecto.',
+        'alternative_text' => 'Captura de pantalla del proyecto',
     ],
 ];

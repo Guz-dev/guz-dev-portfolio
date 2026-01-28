@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Project;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
@@ -24,7 +25,8 @@ class HomeController extends Controller
 
     public function projects()
     {
-        return view('projects');
+        $projects = Project::all();
+        return view('projects', compact('projects'));
     }
 
     public function contact()

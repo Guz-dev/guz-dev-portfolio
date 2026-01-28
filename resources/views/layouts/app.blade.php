@@ -19,23 +19,23 @@
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col transition-colors duration-300 ease-in-out dark:text-[#EDEDEC]">
         <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6">
             <nav class="flex items-center justify-center gap-4">
-                <a href="{{ route('home') }}" wire:navigate class="px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                <a href="{{ route('home') }}" wire:navigate class="px-3 py-1.5 min-w-28 text-center dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
                     {{ __('content.nav.home') }}
                 </a>
-                <a href="{{ route('about') }}" wire:navigate class="px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                <a href="{{ route('about') }}" wire:navigate class="px-3 py-1.5 min-w-28 text-center dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
                     {{ __('content.nav.about') }}
                 </a>
-                <a href="{{ route('projects') }}" wire:navigate class="px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                <a href="{{ route('projects') }}" wire:navigate class="px-3 py-1.5 min-w-28 text-center dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
                     {{ __('content.nav.projects') }}
                 </a>
-                <a href="{{ route('contact') }}" wire:navigate class="px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                <a href="{{ route('contact') }}" wire:navigate class="px-3 py-1.5 min-w-28 text-center dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
                     {{ __('content.nav.contact') }}
                 </a>
                 <form action="{{ route('language.toggle') }}" method="POST" class="inline">
                     @csrf
                     <button 
                         type="submit" 
-                        class="text-lg px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 cursor-pointer transition-colors duration-300 ease-in-out"
+                        class="text-lg px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 dark:bg-gray-700 dark:hover:bg-gray-600 cursor-pointer transition-colors duration-300 ease-in-out font-mono"
                         title="{{ app()->getLocale() === 'es' ? 'Switch to English' : 'Cambiar a Español' }}"
                     >                    
                         {{ app()->getLocale() === 'es' ? '🇺🇸' : '🇪🇸' }}
@@ -48,7 +48,5 @@
                 @yield('content')
             </main>
         </div>
-
-        @livewireScripts
     </body>
 </html>

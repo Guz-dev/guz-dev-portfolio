@@ -23,7 +23,7 @@ return [
                 'position' => 'Web Developer',
                 'place' => 'University of Tarapacá “DICI” - Arica',
                 'date' => 'December 2023 – February 2024',
-                'desc' => 'Laravel-based system to manage computer loans efficiently using QR codes.'
+                'desc' => 'Laravel-based system for efficiently managing computer check-outs using QR codes.'
             ],
             'dlo' => [
                 'position' => 'Web Developer',
@@ -38,7 +38,7 @@ return [
         'title' => 'About me',
         'intro' => 'I am a software developer with hands-on experience building web applications focused on efficiency and scalability. I have worked on projects such as inventory management systems and platforms with QR code integration, delivering functional solutions to real-world needs.',
 
-        'location_age' => 'I am 25 years old and based in Arica, Chile.',
+        'location_age' => 'I am :age years old and based in Arica, Chile.',
 
         'education_title' => 'Academic Background',
         'education_description' => 'I hold a degree in Software Engineering (Ingeniería en Computación e Informática) from the University of Tarapacá, where I gained a solid foundation in software development, data structures, and systems architecture.',
@@ -56,5 +56,8 @@ return [
     'projects' => [
         'title' => 'Projects',
         'description' => 'Here you can find some of the projects I have worked on, each designed to solve specific problems and improve efficiency in various areas.',
+        'placeholder_title' => 'Project in Development',
+        'placeholder_description' => 'More information about this project coming soon.',
+        'alternative_text' => 'Project screenshot',
     ],
 ];

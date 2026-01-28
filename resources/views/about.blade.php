@@ -13,7 +13,7 @@
         </p>
 
         <p class="text-base text-center mb-6 text-gray-600 dark:text-gray-300">
-            {{ __('content.about.location_age') }}
+            {{ __('content.about.location_age', ['age' => \Carbon\Carbon::parse('1999-11-09')->age]) }}
         </p>
 
         <div class="grid gap-6 w-full max-w-3xl">
