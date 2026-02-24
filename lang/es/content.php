@@ -9,8 +9,9 @@ return [
     ],
 
     'home' => [
+        'title' => 'Inicio',
         'name' => 'Gustavo Olivares',
-        'description' => 'Desarrollador web especializado en Laravel, React y Node.js. Construyo soluciones eficientes y escalables para empresas modernas.',
+        'description' => 'Desarrollador web especializado en Laravel, MySQL y Node.js. Construyo soluciones eficientes y escalables para empresas modernas.',
 
         'experience_title' => 'Experiencia laboral',
         'experiences' => [

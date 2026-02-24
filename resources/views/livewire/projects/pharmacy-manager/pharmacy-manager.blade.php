@@ -41,7 +41,10 @@
                     @foreach(range(1, 7) as $i)
                         <div class="min-w-full">
                             <img src="{{ asset('imgs/previews/pharmacy-manager/' . $i . '.jpg') }}" alt="Image {{ $i }} of 7" class="w-full cover h-[400px] rounded shadow">
-                            <p class="mt-2 text-center text-black dark:text-gray-300 text-lg">
+                            <h2 class="mt-2 text-center text-black dark:text-gray-300 text-lg">
+                                {{ __('projects.pharmacy-manager.sub_title' . $i) }}
+                            </h2>
+                            <p class="mt-1 text-center text-gray-600 dark:text-gray-400">
                                 {{ __('projects.pharmacy-manager.description' . $i) }}
                             </p>
                         </div>
@@ -50,10 +53,10 @@
             </div>
 
             <slider-buttons class="flex gap-4">
-                <button wire:click="previous" class="bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 focus:outline-none cursor-pointer">
+                <button wire:click="previous" class="bg-gray-800 w-10 h-auto text-white p-2 rounded-full hover:bg-gray-700 focus:outline-none cursor-pointer">
                     &#8592;
                 </button>
-                <button wire:click="next" class="bg-gray-800 text-white p-2 rounded-full hover:bg-gray-700 focus:outline-none cursor-pointer">
+                <button wire:click="next" class="bg-gray-800 w-10 h-auto text-white p-2 rounded-full hover:bg-gray-700 focus:outline-none cursor-pointer">
                     &#8594;
                 </button>
             </slider-buttons>

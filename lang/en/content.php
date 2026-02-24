@@ -9,8 +9,9 @@ return [
     ],
 
     'home' => [
+        'title' => 'Home',
         'name' => 'Gustavo Olivares / Software Development',
-        'description' => 'Software developer experienced in Laravel, React, Node.js, and more. Specialized in building scalable and efficient web applications.',
+        'description' => 'Software developer experienced in Laravel, MySQL, Node.js, and more. Specialized in building scalable and efficient web applications.',
         'experience_title' => 'Work Experience',
         'experiences' => [
             'camarones' => [

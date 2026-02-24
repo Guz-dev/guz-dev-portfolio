@@ -109,16 +109,20 @@ class EarthquakeTracker extends Component
             // Columna 3 → magnitud
             $magnitude = (float) trim($cols->item(2)->textContent);
 
-            Earthquake::updateOrCreate(
-                [
-                    'time' => $datetime,
-                    'location' => $location,
-                ],
-                [
-                    'magnitude' => $magnitude,
-                    'depth' => $depth,
-                ]
-            );
+            // Guardar en base de datos si no existe, utilizando el datetime como identificador único
+            try {
+                Earthquake::updateOrCreate(
+                    ['time' => $datetime],
+                    [
+                        'location' => $location,
+                        'depth' => $depth,
+                        'magnitude' => $magnitude,
+                    ]
+                );
+            } catch (Exception $e) {
+                // Manejar error (por ejemplo, registro duplicado)
+                error_log("Error saving earthquake data: " . $e->getMessage());
+            }
         }
 
         $this->loadEarthquakesFromDB();
