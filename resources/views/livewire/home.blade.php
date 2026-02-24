@@ -4,6 +4,10 @@
     <h1 class="text-3xl font-bold text-center mb-4"> {{ __('content.home.name') }} </h1>
     <p class="w-8/12 text-lg text-center mb-4"> {{ __('content.home.description') }}</p>
 
+    <a href="{{ route('resume') }}" class="px-5 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer">
+        {{ __('content.home.resume_link') }}
+    </a>
+
     <div class="w-full mt-10">
         <h2 class="text-2xl font-bold text-center mb-6 dark:text-white">
             {{ __('content.home.experience_title') }}

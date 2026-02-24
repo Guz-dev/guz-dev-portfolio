@@ -33,7 +33,8 @@ return [
                 'date' => 'Enero 2023 – Marzo 2023',
                 'desc' => 'Web en Laravel desarrollada en práctica con otros estudiantes para gestión de informes de proyectos del Departamento de Infraestructura.'
             ]
-        ]
+        ],
+        'resume_link' => 'Descargar CV',
     ],
 
     'about' => [

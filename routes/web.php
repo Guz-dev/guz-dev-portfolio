@@ -14,8 +14,14 @@ Route::post('/language-toggle', [HomeController::class, 'languageToggle'])->name
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
-Route::post('/contact', [HomeController::class, 'sendContact'])->name('contact.send');
 
+Route::middleware('throttle:mail')->group(function () {
+    Route::post('/contact', [HomeController::class, 'sendContact'])->name('contact.send');
+});
+
+Route::middleware('throttle:download_resume')->group(function () {
+    Route::get('/resume', [HomeController::class, 'getResume'])->name('resume');
+});
 
 Route::prefix('projects')->group(function () {
     Route::get('/', [HomeController::class, 'projects'])->name('projects');

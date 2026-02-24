@@ -32,7 +32,8 @@ return [
                 'date' => 'January 2023 – March 2023',
                 'desc' => 'Laravel web project developed with peers to manage infrastructure project reports at the university.'
             ]
-        ]
+        ],
+        'resume_link' => 'Download Resume',
     ],
     
     'about' => [

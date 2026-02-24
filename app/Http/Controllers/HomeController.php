@@ -54,4 +54,13 @@ class HomeController extends Controller
         }
         return redirect()->back()->with('message', __('Your message has been sent successfully!'));
     }
+
+    public function getResume()
+    {
+        if (App::getLocale() === 'es') {
+            return response()->download(storage_path('app/public/Curriculum Gustavo Olivares.pdf'), 'Gustavo_Olivares_CV.pdf');
+        } else {
+            return response()->download(storage_path('app/public/Resume Gustavo Olivares.pdf'), 'Gustavo_Olivares_Resume.pdf');
+        }
+    }
 }
