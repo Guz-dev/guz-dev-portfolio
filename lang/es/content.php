@@ -63,4 +63,13 @@ return [
         'placeholder_description' => 'Próximamente más información sobre este proyecto.',
         'alternative_text' => 'Captura de pantalla del proyecto',
     ],
+    
+    'contact' => [
+        'title' => 'Contáctame',
+        'description' => 'Si deseas ponerte en contacto conmigo para discutir oportunidades de colaboración, proyectos o simplemente para saludar, no dudes en enviarme un mensaje a través del siguiente formulario o utilizando mis redes sociales.',
+        'name_placeholder' => 'Tu nombre',
+        'email_placeholder' => 'Tu correo electrónico',
+        'message_placeholder' => 'Tu mensaje',
+        'send_button' => 'Enviar mensaje',
+    ],
 ];

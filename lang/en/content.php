@@ -62,4 +62,13 @@ return [
         'placeholder_description' => 'More information about this project coming soon.',
         'alternative_text' => 'Project screenshot',
     ],
+
+    'contact' => [
+        'title' => 'Contact Me',
+        'description' => 'If you would like to get in touch to discuss collaboration opportunities, projects, or just to say hello, feel free to send me a message through the form below or via my social media channels.',
+        'name_placeholder' => 'Your name',
+        'email_placeholder' => 'Your email',
+        'message_placeholder' => 'Your message',
+        'send_button' => 'Send Message',
+    ],
 ];

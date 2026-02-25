@@ -17,22 +17,22 @@
             {{ session('error') }}
         </div>
     @endif
-    <h1 class="text-3xl font-bold text-center mb-4">Contact me</h1>
+    <h1 class="text-3xl font-bold text-center mb-4"> {{ __('content.contact.title') }} </h1>
     <form action="{{ route('contact.send') }}" method="POST" class="w-full max-w-sm">
         @csrf
         <div class="mb-4">
-            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-white">Name</label>
+            <label for="name" class="block text-sm font-medium text-gray-700 dark:text-white"> {{ __('content.contact.name_placeholder') }} </label>
             <input type="text" name="name" id="name" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-opacity-50" placeholder="Your name">
         </div>
         <div class="mb-4">
-            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-white">Email</label>
+            <label for="email" class="block text-sm font-medium text-gray-700 dark:text-white"> {{ __('content.contact.email_placeholder') }} </label>
             <input type="email" name="email" id="email" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-opacity-50" placeholder="Your email">
         </div>
         <div class="mb-4">
-            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-white">Message</label>
-            <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-opacity-50" placeholder="Your message"></textarea>
+            <label for="message" class="block text-sm font-medium text-gray-700 dark:text-white"> {{ __('content.contact.message_placeholder') }} </label>
+            <textarea name="message" id="message" rows="4" required class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-opacity-50" placeholder="{{ __('content.contact.message_placeholder') }}"></textarea>
         </div>
-        <button type="submit" class="px-5 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer">Send</button>
+        <button type="submit" class="px-5 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer"> {{ __('content.contact.send_button') }} </button>
     </form>
 </div>
 @endsection
