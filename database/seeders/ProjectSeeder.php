@@ -31,7 +31,7 @@ class ProjectSeeder extends Seeder
             [
                 'title' => 'Earthquake Tracker',
                 'description' => 'A project that displays recent earthquakes using an external API and helps visualize the data.',
-                'tools' => 'Laravel, Livewire, Laravel Charts, HTTP Client',
+                'tools' => 'Laravel, Livewire, Google Charts, HTTP Client',
 
                 'project_name' => 'earthquake-tracker',
             ],
