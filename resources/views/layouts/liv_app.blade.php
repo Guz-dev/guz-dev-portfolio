@@ -18,7 +18,7 @@
     </head>
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 items-center justify-center min-h-screen flex-col transition-colors duration-300 ease-in-out dark:text-[#EDEDEC]">
         <header class="w-full text-sm mb-6 mx-auto">
-            <div class="flex items-center justify-between relative">
+            <div class="flex items-center justify-between sticky">
                 <!-- Espacio vacío a la izquierda para balancear -->
                 <div class="flex-1"></div>
                 

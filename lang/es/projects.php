@@ -38,7 +38,6 @@ return [
         'tools' => 'Laravel, Livewire, Google Charts, HTTP Client',
 
         'update_button' => 'Actualizar datos',
-        //'data_source' => 'Datos obtenidos desde el'
         'magnitude_filter' => 'Filtrar por magnitud:',
         'no_earthquakes' => 'No se encontraron sismos con la magnitud especificada.',
         'data_source' => 'Datos obtenidos desde el',
@@ -53,5 +52,32 @@ return [
             'depth' => 'Profundidad (km)',
         ],
         'table_location_format' => ':distance al (:cardinal_direction) de :location',
+
+        'stat_total' => 'Total de Sismos',
+        'stat_avg_magnitude' => 'Magnitud Promedio',
+        'stat_max_magnitude' => 'Magnitud Máxima',
+        'stat_avg_depth' => 'Profundidad Promedio (km)',
+
+        'depth_filter_label' => 'Rango de Profundidad:',
+        'to' => 'a',
+
+        'magnitude_distribution_title' => 'Distribución de Magnitudes',
+        'depth_distribution_title' => 'Distribución de Profundidades',
+        'time_distribution_title' => 'Sismos en el Tiempo',
+        'range' => 'Rango',
+        'count' => 'Cantidad',
+        'date' => 'Fecha',
+
+        'of' => 'de',
+
+        'use_cases_title' => 'Aplicaciones Potenciales',
+        'use_case_1_title' => 'Investigación Científica',
+        'use_case_1_description' => 'Analizar correlaciones entre magnitud, profundidad y frecuencia de eventos sísmicos para apoyar estudios geológicos y sismológicos.',
+        'use_case_2_title' => 'Evaluación de Riesgos',
+        'use_case_2_description' => 'Evaluar el riesgo sísmico para proyectos de infraestructura, planificación urbana y modelos de seguros basados en patrones históricos.',
+        'use_case_3_title' => 'Preparación ante Desastres',
+        'use_case_3_description' => 'Mejorar sistemas de alerta temprana y estrategias de respuesta a emergencias comprendiendo el comportamiento sísmico y zonas de alto riesgo.',
+        'use_case_4_title' => 'Educación y Divulgación',
+        'use_case_4_description' => 'Enseñar conceptos de sismología a través de visualización interactiva de datos y crear conciencia pública sobre seguridad sísmica.',
     ],
 ];

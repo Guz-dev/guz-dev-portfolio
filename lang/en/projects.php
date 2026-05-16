@@ -39,7 +39,6 @@ return [
         'tools' => 'Laravel, Livewire, Google Charts, HTTP Client',
 
         'update_button' => 'Update Data',
-        //'data_source' => 'Data sourced from the'
         'magnitude_filter' => 'Filter by Magnitude:',
         'no_earthquakes' => 'No earthquakes found with the specified magnitude.',
         'data_source' => 'Data sourced from the',
@@ -54,5 +53,32 @@ return [
             'depth' => 'Depth (km)',
         ],
         'table_location_format' => ':distance at (:cardinal_direction) of :location',
+
+        'stat_total' => 'Total Earthquakes',
+        'stat_avg_magnitude' => 'Avg Magnitude',
+        'stat_max_magnitude' => 'Max Magnitude',
+        'stat_avg_depth' => 'Avg Depth (km)',
+
+        'depth_filter_label' => 'Depth Range:',
+        'to' => 'to',
+
+        'magnitude_distribution_title' => 'Magnitude Distribution',
+        'depth_distribution_title' => 'Depth Distribution',
+        'time_distribution_title' => 'Earthquakes Over Time',
+        'range' => 'Range',
+        'count' => 'Count',
+        'date' => 'Date',
+
+        'of' => 'of',
+
+        'use_cases_title' => 'Potential Applications',
+        'use_case_1_title' => 'Scientific Research',
+        'use_case_1_description' => 'Analyze correlations between magnitude, depth, and frequency of seismic events to support geological and seismological studies.',
+        'use_case_2_title' => 'Risk Assessment',
+        'use_case_2_description' => 'Evaluate seismic risk for infrastructure projects, urban planning, and insurance modeling based on historical earthquake patterns.',
+        'use_case_3_title' => 'Disaster Preparedness',
+        'use_case_3_description' => 'Improve early warning systems and emergency response strategies by understanding seismic behavior and high-risk zones.',
+        'use_case_4_title' => 'Education & Outreach',
+        'use_case_4_description' => 'Teach seismology concepts through interactive data visualization and raise public awareness about earthquake safety.',
     ],
 ];
