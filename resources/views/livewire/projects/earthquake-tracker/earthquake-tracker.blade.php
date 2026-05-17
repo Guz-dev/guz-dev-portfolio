@@ -13,14 +13,14 @@
             <h2 class="text-2xl font-bold">{{ __('projects.earthquake-tracker.title') }}</h2>
             <p class="text-gray-600 dark:text-gray-400">{{ __('projects.earthquake-tracker.description') }}</p>
         </div>
-        @if (env('APP_ENV') !== 'production')
         <button
             wire:click="refreshData"
-            class="mt-2 md:mt-0 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded cursor-pointer"
+            @if (!$canRefresh) disabled @endif
+            class="mt-2 md:mt-0 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
+            title="@if (!$canRefresh) {{ __('projects.earthquake-tracker.update_limit_reached') }} @endif"
         >
             {{ __('projects.earthquake-tracker.update_button') }}
         </button>
-        @endif
     </div>
 
     @if (count($summaryStats) > 0)
@@ -62,7 +62,7 @@
         <div wire:ignore id="scatter-chart" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-80"></div>
         <div wire:ignore id="mag-dist-chart" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-80"></div>
         <div wire:ignore id="depth-dist-chart" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-80"></div>
-        {{-- <div wire:ignore id="time-dist-chart" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-80"></div> --}}
+        <div wire:ignore id="time-dist-chart" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-80"></div>
     </div>
 
     <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
@@ -237,7 +237,7 @@
 
 <script>
     if (@json(count($chartData)) === 0) {
-        var charts = ['scatter-chart', 'mag-dist-chart', 'depth-dist-chart'/*, 'time-dist-chart'*/];
+        var charts = ['scatter-chart', 'mag-dist-chart', 'depth-dist-chart', 'time-dist-chart'];
         for (var i = 0; i < charts.length; i++) {
             var el = document.getElementById(charts[i]);
             if (el) el.style.display = 'none';
@@ -401,7 +401,7 @@
         var chart = new google.visualization.ColumnChart(document.getElementById('depth-dist-chart'));
         chart.draw(data, options);
     }
-/* 
+
     function drawTimeDistChart(rawData) {
         if (rawData.length <= 1) return;
         var data = google.visualization.arrayToDataTable(rawData);
@@ -421,7 +421,7 @@
         var chart = new google.visualization.ColumnChart(document.getElementById('time-dist-chart'));
         chart.draw(data, options);
     }
- */
+
     document.addEventListener('livewire:init', function () {
         Livewire.on('chartDataUpdated', function () {
             if (!chartsReady) return;

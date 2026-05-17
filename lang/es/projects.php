@@ -38,6 +38,7 @@ return [
         'tools' => 'Laravel, Livewire, Google Charts, HTTP Client',
 
         'update_button' => 'Actualizar datos',
+        'update_limit_reached' => 'Límite de actualizaciones diarias alcanzado. Intenta más tarde.',
         'magnitude_filter' => 'Filtrar por magnitud:',
         'no_earthquakes' => 'No se encontraron sismos con la magnitud especificada.',
         'data_source' => 'Datos obtenidos desde ',

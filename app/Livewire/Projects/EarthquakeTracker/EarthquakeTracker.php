@@ -13,6 +13,23 @@ class EarthquakeTracker extends Component
 
     public $chartData = [];
 
+    public bool $canRefresh = false;
+
+    protected function canRefresh(): bool
+    {
+        $cacheKey = 'earthquake_refresh_times';
+        $maxPerDay = config('earthquake-tracker.max_refreshes_per_day', 2);
+
+        $today = now()->format('Y-m-d');
+        $refreshTimes = cache()->get($cacheKey, []);
+
+        $todayRefreshes = array_filter($refreshTimes, fn ($timestamp) => 
+            date('Y-m-d', $timestamp) === $today
+        );
+
+        return count($todayRefreshes) < $maxPerDay;
+    }
+
     public float $minMagnitude = 0;
 
     public float $maxMagnitude = 10;
@@ -37,6 +54,7 @@ class EarthquakeTracker extends Component
 
     public function mount()
     {
+        $this->canRefresh = $this->canRefresh();
         $this->loadEarthquakesFromDB();
     }
 
@@ -144,6 +162,15 @@ class EarthquakeTracker extends Component
 
     public function refreshData()
     {
+        if (! $this->canRefresh()) {
+            $this->dispatch('notify', [
+                'type' => 'warning',
+                'message' => __('projects.earthquake-tracker.update_limit_reached'),
+            ]);
+
+            return;
+        }
+
         $response = app()->environment('production')
             ? Http::get('https://api.boostr.cl/earthquakes/recent.json')
             : Http::withoutVerifying()->get('https://api.boostr.cl/earthquakes/recent.json');
@@ -185,6 +212,12 @@ class EarthquakeTracker extends Component
             }
         }
 
+        $cacheKey = 'earthquake_refresh_times';
+        $refreshTimes = cache()->get($cacheKey, []);
+        $refreshTimes[] = now()->timestamp;
+        cache()->put($cacheKey, $refreshTimes, now()->addDays(2));
+
+        $this->canRefresh = false;
         $this->loadEarthquakesFromDB();
 
         $this->dispatch('notify', [

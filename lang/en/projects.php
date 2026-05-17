@@ -39,6 +39,7 @@ return [
         'tools' => 'Laravel, Livewire, Google Charts, HTTP Client',
 
         'update_button' => 'Update Data',
+        'update_limit_reached' => 'Daily update limit reached. Try again later.',
         'magnitude_filter' => 'Filter by Magnitude:',
         'no_earthquakes' => 'No earthquakes found with the specified magnitude.',
         'data_source' => 'Data sourced from ',
