@@ -41,7 +41,7 @@ return [
         'update_button' => 'Update Data',
         'magnitude_filter' => 'Filter by Magnitude:',
         'no_earthquakes' => 'No earthquakes found with the specified magnitude.',
-        'data_source' => 'Data sourced from the',
+        'data_source' => 'Data sourced from ',
 
         'chart_title' => 'Magnitude vs Depth of Earthquakes in Chile',
         'hAxis_title' => 'Depth (km)',

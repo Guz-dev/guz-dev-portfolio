@@ -62,17 +62,17 @@
         <div wire:ignore id="scatter-chart" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-80"></div>
         <div wire:ignore id="mag-dist-chart" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-80"></div>
         <div wire:ignore id="depth-dist-chart" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-80"></div>
-        <div wire:ignore id="time-dist-chart" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-80"></div>
+        {{-- <div wire:ignore id="time-dist-chart" class="bg-white dark:bg-gray-800 rounded-lg shadow p-4 h-80"></div> --}}
     </div>
 
     <p class="text-sm text-gray-500 dark:text-gray-400 mb-4">
         {{ __('projects.earthquake-tracker.data_source') }}
         <a
-            href="https://www.sismologia.cl"
+            href="https://boostr.cl/sismos"
             target="_blank"
             class="underline hover:text-blue-500"
         >
-            Centro Sismológico Nacional (CSN)
+            Boostr
         </a>
     </p>
 
@@ -237,7 +237,7 @@
 
 <script>
     if (@json(count($chartData)) === 0) {
-        var charts = ['scatter-chart', 'mag-dist-chart', 'depth-dist-chart', 'time-dist-chart'];
+        var charts = ['scatter-chart', 'mag-dist-chart', 'depth-dist-chart'/*, 'time-dist-chart'*/];
         for (var i = 0; i < charts.length; i++) {
             var el = document.getElementById(charts[i]);
             if (el) el.style.display = 'none';
@@ -401,7 +401,7 @@
         var chart = new google.visualization.ColumnChart(document.getElementById('depth-dist-chart'));
         chart.draw(data, options);
     }
-
+/* 
     function drawTimeDistChart(rawData) {
         if (rawData.length <= 1) return;
         var data = google.visualization.arrayToDataTable(rawData);
@@ -421,7 +421,7 @@
         var chart = new google.visualization.ColumnChart(document.getElementById('time-dist-chart'));
         chart.draw(data, options);
     }
-
+ */
     document.addEventListener('livewire:init', function () {
         Livewire.on('chartDataUpdated', function () {
             if (!chartsReady) return;

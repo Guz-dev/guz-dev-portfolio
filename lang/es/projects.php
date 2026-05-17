@@ -40,7 +40,7 @@ return [
         'update_button' => 'Actualizar datos',
         'magnitude_filter' => 'Filtrar por magnitud:',
         'no_earthquakes' => 'No se encontraron sismos con la magnitud especificada.',
-        'data_source' => 'Datos obtenidos desde el',
+        'data_source' => 'Datos obtenidos desde ',
 
         'chart_title' => 'Magnitud vs Profundidad de Sismos en Chile',
         'hAxis_title' => 'Profundidad (km)',

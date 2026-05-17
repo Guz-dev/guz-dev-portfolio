@@ -144,74 +144,43 @@ class EarthquakeTracker extends Component
 
     public function refreshData()
     {
-        // Obtener datos desde sismologia.cl
-        if (app()->environment('local')) {
-            // Simular error en entorno local para pruebas
-            $response = Http::withoutVerifying()->get('https://www.sismologia.cl/');
-        } else {
-            $response = Http::get('https://www.sismologia.cl/');
-        }
+        $response = app()->environment('production')
+            ? Http::get('https://api.boostr.cl/earthquakes/recent.json')
+            : Http::withoutVerifying()->get('https://api.boostr.cl/earthquakes/recent.json');
 
         if (! $response->ok()) {
             $this->dispatch('notify', [
                 'type' => 'error',
-                'message' => 'No se pudo obtener información desde sismologia.cl',
+                'message' => 'No se pudo obtener información desde la API',
             ]);
 
             return;
         }
 
-        $html = $response->body();
+        $earthquakes = $response->json()['data'] ?? [];
 
-        libxml_use_internal_errors(true);
+        foreach ($earthquakes as $item) {
+            $eq = $item['data'] ?? $item;
 
-        $dom = new \DOMDocument;
-        $dom->loadHTML($html);
+            $date = $eq['date'] ?? '';
+            $hour = $eq['hour'] ?? '';
 
-        $xpath = new \DOMXPath($dom);
+            $datetime = $date.' '.$hour;
+            $timestamp = strtotime($datetime);
 
-        // Todas las filas de la tabla
-        $rows = $xpath->query('//table//tr');
-
-        /** @var \DOMElement $row */
-        foreach ($rows as $row) {
-            $cols = $row->getElementsByTagName('td');
-
-            if ($cols->length < 3) {
-                continue;
-            }
-
-            // Columna 1 → fecha + lugar
-            $dateLink = $cols->item(0)->getElementsByTagName('a')->item(0);
-            if (! $dateLink) {
-                continue;
-            }
-
-            $datetime = trim($dateLink->textContent);
-
-            $location = trim(
-                str_replace($datetime, '', $cols->item(0)->textContent)
-            );
-
-            // Columna 2 → profundidad
-            $depth = trim($cols->item(1)->textContent);
+            $depth = $eq['depth'] ?? '0';
             $depth = (int) filter_var($depth, FILTER_SANITIZE_NUMBER_INT);
 
-            // Columna 3 → magnitud
-            $magnitude = (float) trim($cols->item(2)->textContent);
-
-            // Guardar en base de datos si no existe, utilizando el datetime como identificador único
             try {
                 Earthquake::updateOrCreate(
-                    ['time' => $datetime],
+                    ['time' => date('Y-m-d H:i:s', $timestamp)],
                     [
-                        'location' => $location,
+                        'location' => $eq['place'] ?? '',
+                        'magnitude' => floatval($eq['magnitude'] ?? 0),
                         'depth' => $depth,
-                        'magnitude' => $magnitude,
                     ]
                 );
             } catch (Exception $e) {
-                // Manejar error (por ejemplo, registro duplicado)
                 error_log('Error saving earthquake data: '.$e->getMessage());
             }
         }
