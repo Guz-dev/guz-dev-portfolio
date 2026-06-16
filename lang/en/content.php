@@ -18,7 +18,7 @@ return [
             'camarones' => [
                 'position' => 'Software Engineer',
                 'place' => 'Municipality of Camarones (Remote)',
-                'date' => 'March 2024 – December 2024',
+                'date' => 'March 2024 – February 2025',
                 'desc' => 'Developed a Laravel platform to manage invoices and pharmacy supplies in Codpa, including history and reports for decision-making.'
             ],
             'dici' => [

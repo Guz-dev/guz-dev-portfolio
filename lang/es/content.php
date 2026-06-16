@@ -11,14 +11,14 @@ return [
     'home' => [
         'title' => 'Inicio',
         'name' => 'Gustavo Olivares',
-        'description' => 'Ingeniero Cívil en Computación e Informática.',
+        'description' => 'Ingeniero Civil en Computación e Informática con experiencia en desarrollo de software y especialización en Laravel. He participado en proyectos de gestión y automatización de procesos para instituciones públicas y académicas, manteniendo un enfoque constante en el aprendizaje y la mejora continua.',
 
         'experience_title' => 'Experiencia laboral',
         'experiences' => [
             'camarones' => [
                 'position' => 'Ingeniero de Software',
                 'place' => 'Municipalidad de Camarones (Remoto)',
-                'date' => 'Marzo 2024 – Diciembre 2024',
+                'date' => 'Marzo 2024 – Febrero 2025',
                 'desc' => 'Desarrollo de una plataforma en Laravel para registrar facturas e insumos de farmacia en Codpa, con historial y reportes para toma de decisiones.'
             ],
             'dici' => [
