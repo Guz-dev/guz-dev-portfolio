@@ -48,6 +48,9 @@ class HomeController extends Controller
         // For simplicity, we'll just simulate a successful send.
         
         try {
+            if (str_contains($validatedData['name'], 'Danielmom') || str_contains($validatedData['message'], 'Jackpot')){
+                return redirect()->back()->with('error', __('There was an error sending your message. Please try again later.'));
+            }
             Mail::to(env('MAIL_USERNAME'))->send(new ContactFormMail($validatedData));
         } catch (\Exception $e) {
             return redirect()->back()->with('error', __('There was an error sending your message. Please try again later.'));
